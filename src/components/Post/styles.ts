@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
+
 export const PostContainer = styled.article`
     background: ${props => props.theme['--base-post']};
     padding: 3.2rem;
     border-radius: 10px;
+    border: 1px solid transparent;
 
     header {
         display: flex;
@@ -28,5 +30,10 @@ export const PostContainer = styled.article`
     p {
         line-height: 25.6px;
         color: ${props => props.theme['--base-text']};
+    }
+
+    &:hover {
+        transition: border 0.3s;
+        border: 1px solid ${props => props.theme['--base-span']};
     }
 `
