@@ -1,5 +1,6 @@
 import { Header } from "../../components/Header"
 import { useProfileInfo } from "../../hooks/useProfileInfo";
+import { SearchForm } from "./components/SearchForm";
 import { HomeContainer, UserInfo, UserInfoContent } from "./styles"
 import { FaExternalLinkAlt, FaGithub, FaUserFriends } from "react-icons/fa";
 import { FaBuilding } from "react-icons/fa6";
@@ -26,6 +27,7 @@ export const Home = () => {
                         </footer>
                     </UserInfoContent>
                 </UserInfo>
+                <SearchForm />
             </HomeContainer>
         </>
     )
