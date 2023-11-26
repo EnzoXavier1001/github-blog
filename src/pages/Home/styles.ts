@@ -46,6 +46,24 @@ export const UserInfoContent = styled.div`
             text-decoration: none;
             font-weight: bold;
             font-size: 1.4rem;
+            position: relative;
+
+            &::after {
+                transition: all 0.2s;
+                content: '';
+                display: block;
+                width: 0%;
+                height: 0;
+                position: absolute;
+                bottom: -5px;
+                background-color: ${props => props.theme.blue};
+            }
+
+            &:hover::after {
+                content: '';
+                width: 100%;
+                height: 1px;
+            }
         }
     }
 
