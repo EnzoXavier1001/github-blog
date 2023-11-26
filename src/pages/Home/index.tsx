@@ -1,47 +1,11 @@
-import { useState, useEffect } from "react"
 import { Header } from "../../components/Header"
+import { useProfileInfo } from "../../hooks/useProfileInfo";
 import { HomeContainer, UserInfo, UserInfoContent } from "./styles"
-import { api } from "../../services/api"
 import { FaExternalLinkAlt, FaGithub, FaUserFriends } from "react-icons/fa";
 import { FaBuilding } from "react-icons/fa6";
 
-interface UserInfo {
-    login: string;
-    name: string;
-    avatar_url: string;
-    bio: string;
-    company: string;
-    followers: number;
-    repositories: string;
-    user_url: string;
-}
-
 export const Home = () => {
-    const [userInfo, setUserInfo] = useState<UserInfo>()
-
-    const fetchUserInfo = async () => {
-        const { data } = await api.get('/users/EnzoXavier1001')
-        const repositories = `${data.html_url}/?tab=repositories`
-
-        console.log(data)
-
-        const profileInfo: UserInfo = {
-            login: data.login,
-            name: data.name,
-            avatar_url: data.avatar_url,
-            bio: data.bio,
-            company: data.company,
-            followers: data.followers,
-            repositories,
-            user_url: data.html_url
-        }
-
-        setUserInfo(profileInfo)
-    }
-    
-    useEffect(() => {
-        fetchUserInfo()
-    }, [])
+    const { userInfo } = useProfileInfo()
     
     return (
         <>
