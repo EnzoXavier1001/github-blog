@@ -1,7 +1,8 @@
 import { Header } from "../../components/Header"
+import { Post } from "../../components/Post";
 import { useProfileInfo } from "../../hooks/useProfileInfo";
 import { SearchForm } from "./components/SearchForm";
-import { HomeContainer, UserInfo, UserInfoContent } from "./styles"
+import { HomeContainer, PostsWrapper, UserInfo, UserInfoContent } from "./styles"
 import { FaExternalLinkAlt, FaGithub, FaUserFriends } from "react-icons/fa";
 import { FaBuilding } from "react-icons/fa6";
 
@@ -28,6 +29,10 @@ export const Home = () => {
                     </UserInfoContent>
                 </UserInfo>
                 <SearchForm />
+                <PostsWrapper>
+                    <Post />
+                    <Post />
+                </PostsWrapper>
             </HomeContainer>
         </>
     )
