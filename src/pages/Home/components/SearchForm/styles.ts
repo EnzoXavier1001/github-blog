@@ -30,5 +30,15 @@ export const SearchFormWrapper = styled.form`
         color: ${props => props.theme['--base-label']};
         padding: 1.2rem 1.6rem;
         border-radius: 6px;
+        transition: color, border 0.1s linear;
+
+        &:focus::placeholder {
+            color: ${props => props.theme['--base-text']};
+        }
+
+        &:focus {
+            color: ${props => props.theme['--base-text']};
+            border: 1px solid ${props => props.theme.blue};
+        }
     }
 `
