@@ -1,5 +1,6 @@
 import { Header } from "../../components/Header"
 import { Post } from "../../components/Post";
+import { usePosts } from "../../hooks/usePosts";
 import { useProfileInfo } from "../../hooks/useProfileInfo";
 import { SearchForm } from "./components/SearchForm";
 import { HomeContainer, PostsWrapper, UserInfo, UserInfoContent } from "./styles"
@@ -8,6 +9,7 @@ import { FaBuilding } from "react-icons/fa6";
 
 export const Home = () => {
     const { userInfo } = useProfileInfo()
+    const { posts } = usePosts()
     
     return (
         <>
@@ -30,8 +32,9 @@ export const Home = () => {
                 </UserInfo>
                 <SearchForm />
                 <PostsWrapper>
-                    <Post />
-                    <Post />
+                    {posts.map(post => (
+                        <Post key={post.id} data={post} />
+                    ))}
                 </PostsWrapper>
             </HomeContainer>
         </>
