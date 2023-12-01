@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const HomeContainer = styled.section`
     max-width: 112rem;
     margin: 0 auto;
+    
+    @media (max-width: 1170px) {
+        width: 90%;
+    }
 `
 
 export const UserInfo = styled.div`
@@ -18,6 +22,14 @@ export const UserInfo = styled.div`
     img {
         height: 14.8rem;
         border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+
+        img {
+            object-fit: contain;
+        }
     }
 `
 
@@ -73,6 +85,7 @@ export const UserInfoContent = styled.div`
 
     footer {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         gap: 2.4rem;
 
@@ -85,10 +98,19 @@ export const UserInfoContent = styled.div`
         }
     }
 
+    @media (max-width: 425px) {
+        p {
+            margin: 1.8rem 0;
+        }
+    }
 `
 
 export const PostsWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 3.2rem;
+
+    @media (max-width: 1140px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
 `

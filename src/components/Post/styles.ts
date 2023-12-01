@@ -6,6 +6,7 @@ export const PostContainer = styled.article`
     padding: 3.2rem;
     border-radius: 10px;
     border: 1px solid transparent;
+    cursor: pointer;
 
     header {
         display: flex;
@@ -28,6 +29,10 @@ export const PostContainer = styled.article`
     }
 
     p {
+        overflow: hidden; /* Esconde o texto que ultrapassa a caixa */
+        display: -webkit-box;
+        -webkit-line-clamp: 4; /* Limita o número de linhas a serem exibidas */
+        -webkit-box-orient: vertical;
         line-height: 25.6px;
         color: ${props => props.theme['--base-text']};
     }
