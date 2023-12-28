@@ -9,7 +9,11 @@ import { FaBuilding } from "react-icons/fa6";
 
 export const Home = () => {
     const { userInfo } = useProfileInfo()
-    const { posts } = usePosts()
+    const { posts, fetchAllPosts } = usePosts()
+
+    async function handleSearchForm(postName: string) {
+        fetchAllPosts(postName)
+    }
     
     return (
         <>
@@ -30,7 +34,7 @@ export const Home = () => {
                         </footer>
                     </UserInfoContent>
                 </UserInfo>
-                <SearchForm />
+                <SearchForm onSearch={handleSearchForm} />
                 <PostsWrapper>
                     {posts.map(post => (
                         <Post key={post.id} data={post} />
